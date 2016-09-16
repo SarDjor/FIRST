@@ -17,14 +17,14 @@ Airline::Airline(char* dest, int numb, char* atype, char* t, char* dow) : number
 	
 }
 
-Airline::Airline() : numberofline(0){
+Airline::Airline() : Airline(NULL, 0, NULL, NULL, NULL){} /*numberofline(0){
 	destination = NULL;
 	airtype = NULL;
 	time = NULL;
 	dayofweek = NULL;
 	reset = "reset";
 
-}
+}*/
 
 void Airline::show(){
 	cout << "Destination: " << destination << endl
@@ -35,10 +35,10 @@ void Airline::show(){
 }
 void Airline::changedest(){
 	char* buf = new char[20];
-	system("cls");
 	cout << "Old destination: " << destination << endl;
 	cout << "Enter new destination (in case of mistake say - reset: ";
-	cin.getline(buf,20);
+	/*cin.getline(buf,20);*/
+	cin >> buf;
 	if (strcmp(buf, reset)==0)
 	{cout << endl << "Change destination method is breaked" << endl; return;}
 	else destination = buf;
@@ -48,7 +48,6 @@ void Airline::changedest(){
 
 void Airline::changenumbofl(){
 	int buf=0;
-	system("cls");
 	cout << "Old number of line: " << numberofline << endl;
 	cout << "Enter new number (in case of mistake say - 532: ";
 	cin >> buf;
@@ -63,10 +62,9 @@ void Airline::changenumbofl(){
 
 void Airline::changeairt(){
 	char* buf = new char[20];
-	system("cls");
 	cout << "Airtype is: " << airtype << endl;
 	cout << "Enter new airtype (in case of mistake say - reset: ";
-	cin.getline(buf,20);
+	cin >> buf;
 	if (strcmp(buf, reset)==0)
 	{
 		cout << endl << "Change airtype method is breaked" << endl; return;
@@ -77,10 +75,9 @@ void Airline::changeairt(){
 
 void Airline::changetime(){
 	char* buf = new char[20];
-	system("cls");
 	cout << "Arriving time is: " << time << endl;
 	cout << "Enter new time (in case of mistake say - reset): ";
-	cin.getline(buf, 20);
+	cin >> buf;
 	if (strcmp(buf, reset)==0)
 	{
 		cout << endl << "Change time method is breaked" << endl; return;
@@ -91,10 +88,9 @@ void Airline::changetime(){
 
 void Airline::changedow(){
 	char* buf = new char[20];
-	system("cls");
 	cout << "Air arriving at " << dayofweek << endl;
 	cout << "Enter new day (in case of mistake say - reset: ";
-	cin.getline(buf,20);
+	cin >> buf;
 	if (strcmp(buf, reset)==0)
 	{
 		cout << endl << "Change day method is breaked" << endl; return;
@@ -103,7 +99,5 @@ void Airline::changedow(){
 	cout << "New day is " << dayofweek;
 }
 
-Airline::~Airline(){
-	cout << "bye";
-}
+Airline::~Airline(){}
 
